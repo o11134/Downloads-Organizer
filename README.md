@@ -32,6 +32,18 @@ Unknown extensions are left in `Downloads`.
 - `internal/watcher`: filesystem watcher
 - `internal/app`: service lifecycle (start/stop/scan)
 
+## Download and install (Windows)
+
+If you only want to install and run the app:
+
+1. Go to the latest release:
+
+   - `https://github.com/o11134/Downloads-Organizer/releases/latest`
+
+2. Download `DownloadsOrganizerSetup.exe`.
+3. Run the installer.
+4. Launch `Downloads Organizer` from Start Menu.
+
 ## Running
 
 1. Install Go 1.22+.
