@@ -14,6 +14,7 @@ Background tray app that keeps your `Downloads` folder clean by moving files int
 - Ignores temporary/incomplete downloads (`.crdownload`, `.part`, `.tmp`, `.download`, `.opdownload`).
 - Handles name conflicts by appending a number, for example `report (1).pdf`.
 - Shows grouped Windows notifications when files are moved.
+- Loads behavior from `config.json` in the app config directory.
 
 ## Extension mapping
 
@@ -43,12 +44,40 @@ go run ./cmd/downloads-organizer
 On Windows, this starts as a tray app.
 On non-Windows systems, it runs in console mode.
 
+## Configuration
+
+On startup, the app creates/updates `config.json` in:
+
+- Windows: `%AppData%\\DownloadsOrganizer\\config.json`
+
+You can open it from tray with `Open Config`.
+
+Example:
+
+```json
+{
+  "downloads_dir": "C:/Users/you/Downloads",
+  "notifications_enabled": true,
+  "notification_batch_interval_seconds": 4,
+  "notification_batch_max_files": 20,
+  "start_with_windows": false,
+  "stability_checks": 6,
+  "stability_delay_ms": 2000
+}
+```
+
+You can also customize:
+
+- `category_by_extension` (map of extension -> folder name)
+- `ignored_extensions` (extensions skipped by organizer)
+
 ### Windows tray controls
 
 - Pause/resume organizing
 - Organize now (manual scan)
 - Open Downloads folder
 - Open log file
+- Open config file
 - Enable/disable notifications
 - Enable/disable startup with Windows
 
@@ -63,6 +92,21 @@ For a Windows executable:
 ```bash
 go build -o DownloadsOrganizer.exe ./cmd/downloads-organizer
 ```
+
+## Windows installer (Inno Setup)
+
+1. Build the executable in project root:
+
+```bash
+go build -o DownloadsOrganizer.exe ./cmd/downloads-organizer
+```
+
+2. Open `installer/DownloadsOrganizer.iss` in Inno Setup Compiler.
+3. Build the installer.
+
+Output installer:
+
+- `dist/installer/DownloadsOrganizerSetup.exe`
 
 ## Logging
 

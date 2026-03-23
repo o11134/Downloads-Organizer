@@ -153,10 +153,10 @@ type windowsRunContext struct {
 	logger  *log.Logger
 	store   *settings.Store
 
-	notifier     *notify.Notifier
-	moveEvents   chan organizer.MoveEvent
-	stopCh       chan struct{}
-	stopOnce     sync.Once
+	notifier      *notify.Notifier
+	moveEvents    chan organizer.MoveEvent
+	stopCh        chan struct{}
+	stopOnce      sync.Once
 	notifications struct {
 		mu      sync.RWMutex
 		enabled bool

@@ -34,15 +34,15 @@ type Store struct {
 }
 
 type fileConfig struct {
-	DownloadsDir                      string            `json:"downloads_dir"`
-	CategoryByExtension               map[string]string `json:"category_by_extension"`
-	IgnoredExtensions                 []string          `json:"ignored_extensions"`
-	StabilityChecks                   *int              `json:"stability_checks"`
-	StabilityDelayMS                  *int              `json:"stability_delay_ms"`
-	NotificationsEnabled              *bool             `json:"notifications_enabled"`
-	NotificationBatchIntervalSeconds  *int              `json:"notification_batch_interval_seconds"`
-	NotificationBatchMaxFiles         *int              `json:"notification_batch_max_files"`
-	StartWithWindows                  *bool             `json:"start_with_windows"`
+	DownloadsDir                     string            `json:"downloads_dir"`
+	CategoryByExtension              map[string]string `json:"category_by_extension"`
+	IgnoredExtensions                []string          `json:"ignored_extensions"`
+	StabilityChecks                  *int              `json:"stability_checks"`
+	StabilityDelayMS                 *int              `json:"stability_delay_ms"`
+	NotificationsEnabled             *bool             `json:"notifications_enabled"`
+	NotificationBatchIntervalSeconds *int              `json:"notification_batch_interval_seconds"`
+	NotificationBatchMaxFiles        *int              `json:"notification_batch_max_files"`
+	StartWithWindows                 *bool             `json:"start_with_windows"`
 }
 
 func Open(appDir string, defaultDownloadsDir string) (*Store, RuntimeConfig, error) {
